@@ -35,16 +35,16 @@ modules:
     requires:
       - name: demoCAPHana-db
 
-  - name: demoCAPHana-ui
-    type: nodejs
-    path: app
+  - name: demoCAPHana
+    type: approuter.nodejs
+    path: app/router
     parameters:
       keep-existing-routes: true
       disk-quota: 512M
       memory: 512M
-      buildpack: nodejs_buildpack
-    build-parameters:
-      ignore: ["default-env.json", ".env"]     
+      ignore: ["default-env.json", ".env"]
+      env:
+        COOKIE_BACKWARD_COMPATIBILITY: true
     requires:
       - name: srv-api
         group: destinations

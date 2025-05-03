@@ -1,0 +1,30 @@
+{
+    "welcomeFile": "interaction_items/webapp/index.html",
+    "authenticationMethod": "none",
+    "logout": {
+      "logoutEndpoint": "/app-logout",
+      "logoutPage": "/"
+    },
+    "routes": [
+        {
+        "source": "^/interaction_items/(.*)",
+        "target": "$1",
+        "localDir": "interaction_items/",
+        "cacheControl": "no-cache, no-store, must-revalidate",
+        "authenticationType": "none"
+        },       
+        {
+          "source": "^/user-api(.*)",
+          "target": "$1",
+          "service": "sap-approuter-userapi"
+        },
+        {
+        "source": "^/(.*)$",
+        "target": "$1",
+        "destination": "srv-api",
+        "csrfProtection": true,
+        "authenticationType": "none"
+        }
+    ]
+    }
+    
