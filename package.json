@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@cap-js/hana": "^1",
+    "@cap-js/postgres": "^1.14.0",
     "@sap/cds": "^8",
     "@sap/cds-common-content": "^2.1.0",
     "@sap/xssec": "^4",
@@ -23,7 +24,10 @@
   },
   "cds": {
     "requires": {
-      "auth": "xsuaa"
+      "auth": "xsuaa",
+      "db": {
+        "kind": "postgres"
+      }
     },
     "sql": {
       "native_hana_associations": false
